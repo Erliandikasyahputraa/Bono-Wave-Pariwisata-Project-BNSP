@@ -45,8 +45,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route publik untuk menampilkan satu cerita
 Route::get('/stories/{story}', [StoryController::class, 'show'])->name('stories.show');
 
-// Grup route admin sekarang dijaga oleh 'auth' DAN 'admin'
-Route::middleware(['auth', 'admin'])->group(function () {
+// Grup route admin sekarang dijaga oleh 'auth'
+Route::middleware(['auth'])->group(function () {
     Route::resource('admin/stories', StoryController::class)->except(['show']);
 });
+
 
