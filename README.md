@@ -1,8 +1,5 @@
 # The Bono Wave - Website Pariwisata Riau
 
-<div align="center">
-  <img src="https://i.ibb.co/rfxDbqx9/Cuplikan-layar-2025-09-22-122822.png" alt="Screenshot Halaman Depan The Bono Wave" width="800"/>
-</div>
 
 <p align="center">
   <em>Aplikasi web pariwisata dinamis untuk Ombak Bono di Riau, dibangun menggunakan Laravel. Mencakup sistem manajemen konten (CRUD) dan integrasi front-end. Proyek untuk sertifikasi BNSP.</em>
