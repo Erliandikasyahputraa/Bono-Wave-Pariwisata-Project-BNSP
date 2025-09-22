@@ -104,6 +104,19 @@
     th, td { padding: 15px; border-bottom: 1px solid var(--admin-border); text-align: left; }
     th { color: var(--admin-text-muted); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
     tbody tr:hover { background-color: rgba(255, 255, 255, 0.02); }
+    td img {
+    max-height: 80px;      
+    max-width: 80px;       
+    width: auto;        
+    height: auto;          
+    object-fit: contain;   
+    border-radius: 5px;
+    vertical-align: middle; }
+td:last-child {
+    display: flex;
+    gap: 10px;
+    align-items: center; 
+}
     .alert-success { background-color: #166534; color: #DCFCE7; padding: 15px; border-radius: 5px; margin-bottom: 20px; font-weight: 500; }
     .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--admin-text-muted);}
     .form-group input, .form-group textarea { width: 100%; padding: 12px; background: var(--admin-bg); border: 1px solid var(--admin-border); border-radius: 5px; color: var(--admin-text); font-size: 1rem; transition: border-color 0.2s, box-shadow 0.2s; }

@@ -7,7 +7,7 @@
         <article class="story-detail">
             <h1 class="story-title">{{ $story->title }}</h1>
             <p class="story-meta">Ditulis oleh: <strong>{{ $story->author }}</strong> pada {{ $story->created_at->format('d F Y') }}</p>
-
+            
             @if($story->image_path)
                 <img class="story-image" src="{{ asset('storage/' . $story->image_path) }}" alt="{{ $story->title }}">
             @endif

@@ -19,20 +19,27 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Judul</th>
+                    <th>Gambar</th> <th>Judul</th>
                     <th>Penulis</th>
-                    <th>Aksi</th>
+                    <th style="width: 15%;">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($stories as $story)
                     <tr>
                         <td>{{ $story->id }}</td>
+                        <td>
+                            @if($story->image_path)
+                                <img src="{{ asset('storage/' . $story->image_path) }}" alt="Gambar Cerita" width="100" style="border-radius: 5px;">
+                            @else
+                                <small>Tidak ada gambar</small>
+                            @endif
+                        </td>
                         <td>{{ $story->title }}</td>
                         <td>{{ $story->author }}</td>
-                        <td style="display: flex; gap: 10px;">
+                        <td style="display: flex; gap: 10px; align-items: center;">
                             <a href="{{ route('stories.edit', $story->id) }}" class="btn btn-edit" style="padding: 8px 12px;">Edit</a>
-                            <form action="{{ route('stories.destroy', $story->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus cerita ini?');">
+                            <form action="{{ route('stories.destroy', $story->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus cerita ini?');" style="margin: 0;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-delete" style="padding: 8px 12px; border:none; cursor:pointer;">Hapus</button>
@@ -41,7 +48,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" style="text-align:center;">Belum ada cerita.</td>
+                        <td colspan="5" style="text-align:center;">Belum ada cerita.</td>
                     </tr>
                 @endforelse
             </tbody>

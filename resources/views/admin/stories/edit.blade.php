@@ -9,7 +9,7 @@
     </div>
     
     <div class="content-box">
-        <form action="{{ route('stories.update', $story->id) }}" method="POST">
+        <form action="{{ route('stories.update', $story->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -19,6 +19,16 @@
             <div class="form-group">
                 <label for="author">Penulis</label>
                 <input type="text" id="author" name="author" value="{{ $story->author }}" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Gambar Profil Baru (Opsional)</label>
+                <input type="file" id="image" name="image">
+                @if($story->image_path)
+                    <div style="margin-top:15px;">
+                        <small>Gambar saat ini:</small><br>
+                        <img src="{{ asset('storage/' . $story->image_path) }}" alt="Gambar saat ini" width="150" style="border-radius: 5px;">
+                    </div>
+                @endif
             </div>
             <div class="form-group">
                 <label for="content">Isi Cerita</label>

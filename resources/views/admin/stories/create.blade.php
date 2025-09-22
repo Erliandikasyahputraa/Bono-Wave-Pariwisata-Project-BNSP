@@ -9,21 +9,26 @@
     </div>
 
     <div class="content-box">
-        <form action="{{ route('stories.store') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="title">Judul</label>
-                <input type="text" id="title" name="title" required value="{{ old('title') }}">
-            </div>
-            <div class="form-group">
-                <label for="author">Penulis</label>
-                <input type="text" id="author" name="author" required value="{{ old('author') }}">
-            </div>
-            <div class="form-group">
-                <label for="content">Isi Cerita</label>
-                <textarea id="content" name="content" rows="10" required>{{ old('content') }}</textarea>
-            </div>
-            <button type="submit" class="btn">Simpan Cerita</button>
-        </form>
+       <form action="{{ route('stories.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="form-group">
+        <label for="title">Judul</label>
+        <input type="text" id="title" name="title" required value="{{ old('title') }}">
+    </div>
+    <div class="form-group">
+        <label for="author">Penulis</label>
+        <input type="text" id="author" name="author" required value="{{ old('author') }}">
+    </div>
+    <div class="form-group">
+        <label for="image">Gambar Profil (Opsional)</label>
+        <input type="file" id="image" name="image">
+    </div>
+
+    <div class="form-group">
+        <label for="content">Isi Cerita</label>
+        <textarea id="content" name="content" rows="10" required>{{ old('content') }}</textarea>
+    </div>
+    <button type="submit" class="btn">Simpan Cerita</button>
+</form>
     </div>
 @endsection
