@@ -52,7 +52,7 @@ class StoryController extends Controller
         return view('admin.stories.edit', ['story' => $story]);
     }
 
-    public function update(Request $request, Story $story)
+   public function update(Request $request, Story $story)
     {
         $validatedData = $request->validate([
             'title' => 'sometimes|required|max:255',
@@ -61,36 +61,39 @@ class StoryController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
-        if ($request->hasFile('image')) {
-            if ($story->image_path) {
-                Storage::disk('public')->delete($story->image_path);
+        try {
+            if ($request->hasFile('image')) {
+                // Hapus gambar lama jika ada
+                if ($story->image_path && Storage::disk('public')->exists($story->image_path)) {
+                    Storage::disk('public')->delete($story->image_path);
+                }
+                $path = $request->file('image')->store('story_images', 'public');
+                $validatedData['image_path'] = $path;
             }
-            $path = $request->file('image')->store('story_images', 'public');
-            $validatedData['image_path'] = $path;
+            
+            $story->update($validatedData);
+            
+            return redirect()->route('stories.index')->with('success', 'Cerita berhasil diperbarui!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal memperbarui cerita: ' . $e->getMessage());
         }
-        
-        $story->update($validatedData);
-        
-        return redirect()->route('stories.index')->with('success', 'Cerita berhasil diperbarui!');
     }
+    
     
     public function destroy(Story $story)
     {
         try {
-            // Hapus file gambar jika ada
-            if ($story->image_path) {
-                // Hapus dari storage
-                if (Storage::disk('public')->exists($story->image_path)) {
-                    Storage::disk('public')->delete($story->image_path);
-                }
+            // Hapus gambar jika ada
+            if ($story->image_path && Storage::disk('public')->exists($story->image_path)) {
+                Storage::disk('public')->delete($story->image_path);
             }
             
-            // Hapus data dari database
             $story->delete();
             
             return redirect()->route('stories.index')->with('success', 'Cerita berhasil dihapus!');
         } catch (\Exception $e) {
-            return redirect()->route('stories.index')->with('error', 'Gagal menghapus cerita: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Gagal menghapus cerita: ' . $e->getMessage());
         }
     }
+
 }

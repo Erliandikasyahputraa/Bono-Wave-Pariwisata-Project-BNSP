@@ -23,12 +23,12 @@
                 </a>
             </div>
             <ul class="nav-links">
-                <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
-                <li><a href="{{ url('/phenomenon') }}" class="{{ request()->is('phenomenon') ? 'active' : '' }}">The Phenomenon</a></li>
-                <li><a href="{{ url('/guide') }}" class="{{ request()->is('guide') ? 'active' : '' }}">Surfing Guide</a></li>
-                <li><a href="{{ url('/trip') }}" class="{{ request()->is('trip') ? 'active' : '' }}">Plan Trip</a></li>
-                <li><a href="{{ url('/gallery') }}" class="{{ request()->is('gallery') ? 'active' : '' }}">Gallery</a></li>
-                
+    <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Beranda</a></li>
+    <li><a href="{{ url('/phenomenon') }}" class="{{ request()->is('phenomenon') ? 'active' : '' }}">Jelajahi Bono</a></li>
+    <li><a href="{{ url('/guide') }}" class="{{ request()->is('guide') ? 'active' : '' }}">Panduan</a></li>
+    <li><a href="{{ url('/trip') }}" class="{{ request()->is('trip') ? 'active' : '' }}">Rencanakan Trip</a></li>
+    <li><a href="{{ url('/gallery') }}" class="{{ request()->is('gallery') ? 'active' : '' }}">Galeri</a></li>
+    
                 @guest
                     @if (Route::has('login'))
                         <li><a href="{{ route('login') }}" class="btn-login-header">Login</a></li>
@@ -59,19 +59,21 @@
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-column about">
-                <div class="logo">
-                    <a href="{{ url('/') }}"><img src="{{ asset('assets/images/hero/ikon.png') }}" alt="Logo The Bono Wave"></a>
-                    <span class="logo-text">THE BONO<br>WAVE</span>
-                </div>
+    <div class="logo">
+        <a href="{{ url('/') }}">
+            <img src="{{ asset('assets/images/hero/ikon.png') }}" alt="Logo The Bono Wave">
+            <span class="logo-text">THE BONO<br>WAVE</span>
+        </a>
+    </div>
                 <p>Sebuah portal didedikasikan untuk peselancar dan petualang yang ingin menaklukkan ombak sungai legendaris di Sungai Kampar, Riau.</p>
             </div>
             <div class="footer-column links">
                 <h4>Jelajahi</h4>
                 <ul>
-                    <li><a href="{{ url('/phenomenon') }}">The Phenomenon</a></li>
-                    <li><a href="{{ url('/guide') }}">Surfing Guide</a></li>
-                    <li><a href="{{ url('/trip') }}">Plan Trip</a></li>
-                    <li><a href="{{ url('/gallery') }}">Gallery</a></li>
+                    <li><a href="{{ url('/phenomenon') }}">Bono</a></li>
+                    <li><a href="{{ url('/guide') }}">Panduan</a></li>
+                    <li><a href="{{ url('/trip') }}">Rencanakan Tripmu</a></li>
+                    <li><a href="{{ url('/gallery') }}">Galeri</a></li>
                 </ul>
             </div>
             <div class="footer-column contact">

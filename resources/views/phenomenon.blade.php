@@ -1,13 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'The Phenomenon - The Bono Wave')
-@section('header_class', 'header-minimal')
-@section('navbar_class', 'scrolled')
+@section('title', 'Fenomena Bono - The Bono Wave')
 
 @section('content')
     <section class="section-padding page-title-section">
         <h1 class="page-title">Keajaiban di Jantung Sungai</h1>
-        <p class="page-subtitle">Lebih dari sekadar ombak, Bono adalah fenomena alam yang memukau dunia.</p>
+        <p class="page-subtitle">Lebih dari sekadar ombak, Bono adalah fenomena alam dan budaya yang memukau dunia.</p>
     </section>
 
     <section id="stats" class="section-padding section-dark">
@@ -35,6 +33,11 @@
             <div class="text-content">
                 <h3>Dari Sudut Pandang Sains</h3>
                 <p>Bono adalah tidal bore, pertemuan dahsyat antara pasang naik air laut dari Selat Malaka dengan arus Sungai Kampar. Muara sungai yang berbentuk corong raksasa memampatkan energi pasang ini, melahirkan gelombang tunggal yang terus bergerak puluhan kilometer melawan arus menuju hulu.</p>
+                <ul>
+                    <li><i class="fas fa-map-marked-alt"></i> Geografi: Terjadi di muara Sungai Kampar, Kabupaten Pelalawan, Riau, yang dikelilingi oleh ekosistem hutan gambut yang kaya.</li>
+                    <li><i class="fas fa-cloud-sun-rain"></i> Iklim: Ombak terbesar muncul saat musim hujan (Oktober - Desember), didorong oleh volume air sungai yang lebih besar.</li>
+                    <li><i class="fas fa-leaf"></i> Flora & Fauna: Area di sekitar sungai adalah rumah bagi berbagai satwa liar, menambah nuansa petualangan saat menyusuri sungai.</li>
+                </ul>
             </div>
             <div class="image-content">
                 <img src="{{ asset('assets/images/phenomenon/daerahg.jpg') }}" alt="Peta muara Sungai Kampar">
@@ -52,11 +55,35 @@
         </div>
     </section>
 
-    <section id="wave-schedule" class="section-padding final-cta-section" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('{{ asset('assets/images/phenomenon/final-cta-bg.jpg') }}')">
-        <div class="cta-content">
-            <h2>Saksikan Sendiri Keajaibannya</h2>
-            <p>Bono paling spektakuler saat musim hujan dan bulan purnama. Rencanakan perjalanan Anda antara bulan Oktober hingga Desember untuk menyaksikan kekuatan maksimalnya.</p>
-            <a href="{{ url('/trip') }}" class="btn-primary">Lihat Jadwal & Rencanakan Perjalanan</a>
+   <section id="local-life" class="section-padding">
+    <div class="culture-container">
+        <div class="culture-image-collage">
+            <img src="{{ asset('assets/images/phenomenon/petalangan.jpeg') }}" alt="petalangan" class="collage-img-1">
+            <img src="{{ asset('assets/images/phenomenon/batik.jpeg') }}" alt="Batik" class="collage-img-2">
         </div>
-    </section>
+        <div class="culture-text">
+            <p class="section-tag">Kearifan Lokal</p>
+            <h2 class="section-title">Nadi Kehidupan di Tepi Bono</h2>
+            <p class="section-description" style="text-align: left;">
+                Bagi masyarakat Desa Teluk Meranti, Bono bukan sekadar fenomena alam, melainkan bagian dari detak jantung kehidupan sehari-hari. Sungai Kampar adalah halaman depan rumah mereka, tempat para nelayan mencari nafkah dan anak-anak bermain. Kehidupan di sini berjalan selaras dengan ritme pasang surut.
+            </p>
+            <div class="culture-points">
+                <div class="point-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <div>
+                        <h4>Adat Menjaga Sungai</h4>
+                        <p>Tradisi seperti "Petalangan" mengajarkan untuk tidak hanya mengambil dari alam, tetapi juga memberi kembali melalui rasa hormat dan upacara adat yang menjaga keharmonisan dengan sungai.</p>
+                    </div>
+                </div>
+                <div class="point-item">
+                    <i class="fas fa-handshake"></i>
+                    <div>
+                        <h4>Etika Bertamu</h4>
+                        <p>Sebagai tamu, senyuman dan sapaan hangat akan selalu dibalas dengan keramahan. Mengenakan pakaian sopan saat berkeliling desa adalah cara terbaik untuk menghormati budaya Melayu yang santun.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
